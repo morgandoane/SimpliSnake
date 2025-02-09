@@ -125,6 +125,7 @@ class Snake {
 			const foodElement = document.createElement('div');
 			foodElement.className = 'food';
 			foodElement.innerHTML = this.food[2];
+
 			document
 				.getElementById(`${this.food[1]}-${this.food[0]}`)
 				.appendChild(foodElement);

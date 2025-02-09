@@ -61,10 +61,13 @@ button.selected {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 }
 
 .food {
 	animation: pulseAnimation 1.5s infinite;
+	position: absolute;
+	transform: translate(-50%, -50%);
 }
 
 @keyframes pulseAnimation {
