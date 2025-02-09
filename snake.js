@@ -146,7 +146,7 @@ class Snake {
 				(node) => node[0] === newHead[0] && node[1] === newHead[1]
 			)
 		) {
-			this.endGame();
+			this.endGame(newHead[0], newHead[1]);
 		} else if (newHead[0] === this.food[0] && newHead[1] === this.food[1]) {
 			this.nodes.unshift(newHead);
 			this.food = this.generateFood();
@@ -156,9 +156,9 @@ class Snake {
 		}
 	}
 
-	endGame() {
+	endGame(row, col) {
+		this.explosion(row, col);
 		clearInterval(this.interval);
-		alert('Game Over!');
 		const restartButton = document.createElement('button');
 		restartButton.innerHTML = 'Restart';
 		restartButton.style.position = 'absolute';
@@ -167,6 +167,16 @@ class Snake {
 		restartButton.style.transform = 'translate(-50%, -50%)';
 		restartButton.onclick = () => window.location.reload();
 		document.getElementById('root').appendChild(restartButton);
+	}
+
+	explosion(row, col) {
+		const explosion = document.createElement('div');
+		explosion.className = 'explosion';
+		const fire = '💥';
+		explosion.innerHTML = fire;
+
+		const cell = document.getElementById(`${col}-${row}`);
+		cell.appendChild(explosion);
 	}
 }
 

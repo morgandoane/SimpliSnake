@@ -90,6 +90,22 @@ button.selected {
 	margin-right: 2rem;
 }
 
+.explosion {
+	animation: explode 0.5s infinite;
+	z-index: 10;
+}
+
+@keyframes explode {
+	0% {
+		transform: scale(1);
+		rotate: 0deg;
+	}
+	100% {
+		transform: scale(1.5);
+		rotate: 360deg;
+	}
+}
+
 @keyframes pulseAnimation {
 	0%,
 	100% {
