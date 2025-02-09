@@ -213,3 +213,26 @@ if (controlContainer) {
 		controlContainer.appendChild(button);
 	});
 }
+
+const mobileContainer = document.getElementById('mobile');
+const width = window.innerWidth;
+if (mobileContainer && width < 768) {
+	const translation = {
+		up: '↑',
+		left: '←',
+		right: '→',
+		down: '↓',
+	};
+	const rows = [['up'], ['left', 'right'], ['down']];
+	rows.forEach((row) => {
+		const rowElement = document.createElement('div');
+		rowElement.className = 'row';
+		row.forEach((direction) => {
+			const button = document.createElement('button');
+			button.innerHTML = translation[direction];
+			button.onclick = () => snake.changeDirection(direction);
+			rowElement.appendChild(button);
+		});
+		mobileContainer.appendChild(rowElement);
+	});
+}

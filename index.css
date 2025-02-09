@@ -21,7 +21,7 @@ body {
 #controls {
 	display: flex;
 	gap: 1rem;
-	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 button {
@@ -68,6 +68,26 @@ button.selected {
 	animation: pulseAnimation 1.5s infinite;
 	position: absolute;
 	transform: translate(-50%, -50%);
+	z-index: 10;
+}
+
+#mobile {
+	flex-flow: column;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	padding: 1rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+#mobile button {
+	margin-left: 2rem;
+	margin-right: 2rem;
 }
 
 @keyframes pulseAnimation {
