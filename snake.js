@@ -240,7 +240,22 @@ if (mobileContainer && width < 768) {
 		row.forEach((direction) => {
 			const button = document.createElement('button');
 			button.innerHTML = translation[direction];
-			button.onclick = () => snake.changeDirection(direction);
+			button.onclick = () => {
+				switch (direction) {
+					case 'up':
+						if (snake.direction !== 'down') snake.changeDirection('up');
+						break;
+					case 'left':
+						if (snake.direction !== 'right') snake.changeDirection('left');
+						break;
+					case 'right':
+						if (snake.direction !== 'left') snake.changeDirection('right');
+						break;
+					case 'down':
+						if (snake.direction !== 'up') snake.changeDirection('down');
+						break;
+				}
+			};
 			rowElement.appendChild(button);
 		});
 		mobileContainer.appendChild(rowElement);
